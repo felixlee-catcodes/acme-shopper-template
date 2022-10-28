@@ -30,7 +30,19 @@ describe("the shopping process", () => {
       it("the lineItem gets created", async () => {
         const foo = await seed.products.foo;
         const larry = await seed.users.larry;
-        const cart = await larry.addToCart({ foo, quantity: 2 });
+        const cart = await larry.addToCart({ product: foo, quantity: 2 });
+        console.log(cart);
+        expect(cart.lineItems.length).to.equal(1);
+      });
+    });
+    describe("product is a lineItem", () => {
+      it("the lineItem gets updated", async () => {
+        const foo = await seed.products.foo;
+        const larry = await seed.users.larry;
+        await larry.addToCart({ product: foo, quantity: 2 });
+        const cart = await larry.addToCart({ product: foo, quantity: 3 });
+        expect(cart.lineItems.length).to.equal(1);
+        expect(cart.lineItems[0].quantity).to.equal(5);
       });
     });
   });

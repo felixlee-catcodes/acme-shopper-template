@@ -36,6 +36,9 @@ User.prototype.getCart = async function () {
   if (!cart) {
     cart = await conn.models.order.create({ userId: this.id });
   }
+  cart = await conn.models.order.findByPk(cart.id, {
+    include: [conn.models.lineItem],
+  });
   return cart;
 };
 
@@ -45,6 +48,17 @@ User.prototype.addToCart = async function ({ product, quantity }) {
   let lineItem = cart.lineItems.find((lineItem) => {
     return lineItem.productId === product.id;
   });
+  if (lineItem) {
+    lineItem.quantity += quantity;
+    await lineItem.save();
+  } else {
+    await conn.models.lineItem.create({
+      orderId: cart.id,
+      productId: product.id,
+      quantity,
+    });
+  }
+  return this.getCart();
 };
 
 //hook to hash the user's password, limited to only rehash if the password gets updated not any other user detail

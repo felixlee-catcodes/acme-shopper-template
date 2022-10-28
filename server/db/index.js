@@ -2,8 +2,12 @@ const conn = require("./conn");
 const User = require("./User");
 const Product = require("./Product");
 const Order = require("./Order");
+const LineItem = require("./LineItem");
 
 Order.belongsTo(User);
+Order.hasMany(LineItem);
+LineItem.belongsTo(Order);
+LineItem.belongsTo(Product);
 
 const syncAndSeed = async () => {
   await conn.sync({ force: true });
