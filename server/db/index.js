@@ -8,7 +8,7 @@ const syncAndSeed = async () => {
     User.create({ username: "lucy", password: "123" }),
     User.create({ username: "larry", password: "123" }),
   ]);
-  const cart = await moe.getCart();
+
   return {
     users: {
       moe,
