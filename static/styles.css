@@ -1,4 +1,6 @@
 body {
     font-family: optima;
-    background-color: white;
+    background-color: rgb(36, 36, 36);
+    color: whitesmoke;
+    margin: 0;
 }

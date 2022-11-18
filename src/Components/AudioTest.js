@@ -12,13 +12,13 @@ export default function AudioTest() {
   return (
     <div>
       AudioTest
-      {console.log(actx)}
+      {/* {console.log(actx)}
       {console.log(osc1)}
-      {console.log(gain1)}
+      {console.log(gain1)} */}
       <br />
       {osc1.frequency.value}
       <br />
-      {(osc1.type = "sawtooth")}
+      {(osc1.type = "sine")}
       {osc1.start()}
       <br />
       <button onClick={() => osc1.stop()}>stop</button>
