@@ -19,7 +19,9 @@ export default function AudioTest() {
       {osc1.frequency.value}
       <br />
       {(osc1.type = "sine")}
+      {console.log(actx.state)}
       {osc1.start()}
+      {console.log(actx.state)}
       <br />
       <button onClick={() => osc1.stop()}>stop</button>
     </div>
