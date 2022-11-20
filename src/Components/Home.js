@@ -16,8 +16,8 @@ const Home = () => {
       </p>
       <p>
         This "no notation" approach is meant to mimic how we naturally learn our
-        native languages as infants and toddlers. The average kid is
-        comprehending speech and creating sentences well before learning to
+        native languages as infants and toddlers. The average child can
+        comprehend speech and create sentences well before they learn how to
         read. I believe that that capacity extends to music which is a complex
         language unto itself. And while the ability to read musical notation is
         a great skill to have, people have been learning and playing music long

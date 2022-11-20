@@ -7,6 +7,11 @@ body {
 /* :root {
     background-color: rgb(27, 24, 19);
 } */
+/* nav styling */
+.nav-link {
+    text-decoration: none;
+    color: white;
+}
 
 /* home page content */
 .about, h1 {
@@ -48,15 +53,40 @@ body {
     justify-content: space-around;
     align-items: center;
     gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.chord-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
 }
 .slide-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 2px solid white;
 }
 .tone{
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-items: center;
+    gap: 1rem;
+}
+
+.note-name {
+    font-size: 5rem;
+}
+.note-number {
+    font-size: 3rem;
+}
+.note-val{
+    font-size: 2rem;
 }
 /* .slide-container {
     display: flex;

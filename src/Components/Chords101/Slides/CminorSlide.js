@@ -17,13 +17,13 @@ const synth = new Tone.Synth().toDestination();
 */
 
 // array of notes to save the name and freq of chord tones in objs could possibly be pulled from redux store in the future...
-const notes = ["C4", "E4", "G4"];
+const notes = ["C4", "Eb4", "G4"];
 const notesObj = [
   { name: "C", note: "C4", val: "root", num: "1" },
-  { name: "E", note: "E4", val: "major", num: "3" },
+  { name: "E", note: "Eb4", val: "minor", num: "3" },
   { name: "G", note: "G4", val: "perfect", num: "5" },
 ];
-
+const flatSymbol = "&#9837;";
 const toneTest = (ev) => {
   console.log("ev", ev);
   console.log("target", ev.target.id);
@@ -39,7 +39,7 @@ const chordTest = () => {
   const synth = new Tone.PolySynth(Tone.Synth).toDestination();
   const now = Tone.now();
   synth.triggerAttack("C4", "2n");
-  synth.triggerAttack("E4", "2n");
+  synth.triggerAttack("Eb4", "2n");
   synth.triggerAttack("G4", "2n");
   synth.triggerRelease([...notes], now + 2);
 };
@@ -51,7 +51,7 @@ const CmajorSlide = () => {
 
       <div className='slide-header'>
         <h1 className='slide-title'>
-          C Major Chord{" "}
+          C Minor Chord{" "}
           <span>
             <AiFillSound id='chord' onMouseDown={chordTest} size={50} />
           </span>
@@ -62,7 +62,10 @@ const CmajorSlide = () => {
         {notesObj.map((noteData, idx, arr) => (
           <div key={noteData.name} className='tone' onMouseDown={toneTest}>
             <div className='note-name' id={noteData.name}>
-              {noteData.name}
+              {idx === 1
+                ? `${noteData.name[0]}` + `<span></span>`
+                : noteData.name}
+              {/* {<>&#9837;</>} */}
             </div>
             <div className='note-number'>
               {noteData.num}
