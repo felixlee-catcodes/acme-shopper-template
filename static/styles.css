@@ -13,6 +13,15 @@ body {
     color: white;
 }
 
+.menu-link{
+    text-decoration: none;
+    color: black;
+}
+
+.menu-list-item:hover{
+    box-shadow: inset 3px 3px 1px red, -1em 0 0.4em olive;
+}
+
 /* home page content */
 .about, h1 {
     text-align: center;
@@ -29,7 +38,7 @@ body {
 }
 
 .about, hr {
-    margin-left: 8.5em;
+    margin-left: 0;
 }
 /* --------------------- */
 /* slide styles */

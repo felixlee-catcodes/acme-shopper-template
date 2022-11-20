@@ -221,29 +221,54 @@ export default function BasicAppBar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
+        <ListItem key={"list-header"} disablePadding className=''>
+          <ListItemButton>
+            <ListItemText primary={"Chords"} />
+          </ListItemButton>
+        </ListItem>
+        <hr />
         {[
-          "Chords101",
-          "Major & Minor Triads",
-          "7th Chords",
-          "Augmented & Diminished Chords",
-        ].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={text} />
-            </ListItemButton>
+          { title: "Chords101", ref: "/chords/intro" },
+          { title: "Major & Minor Triads", ref: "/chords/lesson1" },
+          { title: "7th Chords", ref: "/chords/lesson2" },
+          { title: "Augmented & Diminished Chords", ref: "/chords/lesson3" },
+        ].map((data, index) => (
+          <ListItem key={index} disablePadding className='menu-list-item'>
+            <Link className='menu-link' to={`/study${data.ref}`}>
+              <ListItemButton>
+                <ListItemText primary={data.title} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        <ListItem key={"list-header"} disablePadding className='list-header'>
+          <ListItemButton>
+            <ListItemText primary={"Progressions"} className='' />
+          </ListItemButton>
+        </ListItem>
+        <hr />
+        {[
+          { title: "Intro to Progressions", ref: "/progressions/intro" },
+          { title: "Roman Numeral System", ref: "/progressions/lesson1" },
+          { title: "I-V-I", ref: "/progressions/lesson2" },
+          {
+            title: "Augmented & Diminished progressions",
+            ref: "/progressions/lesson3",
+          },
+        ].map((data, index) => (
+          <ListItem key={index} disablePadding className='menu-list-item'>
             <ListItemButton>
-              <ListItemText primary={text} />
+              <Link className='menu-link' to={`/study${data.ref}`}>
+                <ListItemText primary={data.title} />
+              </Link>
             </ListItemButton>
           </ListItem>
         ))}
       </List>
+      <Divider />
     </Box>
   );
   return (
