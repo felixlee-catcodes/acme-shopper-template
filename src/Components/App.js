@@ -8,7 +8,7 @@ import FirstChordsLesson from "./Chords101/FirstChords";
 
 const App = () => {
   return (
-    <div>
+    <div id='wrapper'>
       <BasicAppBar />
       <Routes>
         <Route path='/home' element={<Home />} />

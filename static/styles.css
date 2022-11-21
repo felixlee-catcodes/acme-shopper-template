@@ -4,9 +4,12 @@ body {
     color: whitesmoke;
     margin: 0;
 }
-/* :root {
-    background-color: rgb(27, 24, 19);
-} */
+/* app wrapper...child of the root element */
+#wrapper{
+    display: flex;
+    flex-direction: column;
+}   
+
 /* nav styling */
 .nav-link {
     text-decoration: none;
@@ -23,23 +26,24 @@ body {
 }
 
 /* home page content */
-.about, h1 {
-    text-align: center;
-    width: 85%;
+.about {
+    
+    width: auto;
+    margin: 0 15%;
 
 }
 .about, p{
-    text-align: left;
-    margin-left: 10em;
+    /* text-align: left; */
+    /* margin-left: 10em; */
     font-size: larger;
 }
-.about, h3 {
+/* .about, h3 {
     margin-left: 8.5em;
-}
+} */
 
-.about, hr {
+/* .about, hr {
     margin-left: 0;
-}
+}  */
 /* --------------------- */
 /* slide styles */
 .slide-header {
