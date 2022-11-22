@@ -71,13 +71,6 @@ const Intro2 = () => {
         additionalTransfrom={0}
         arrows
         autoPlaySpeed={1000}
-        // beforeChange={function (nextSlide, _ref2) {
-        //   var currentSlide = _ref2.currentSlide;
-        //   _ref2.onMove;
-        //   return alert(
-        //     "previous slide is " + currentSlide + " nextSlide is " + nextSlide
-        //   );
-        // }}
         centerMode={false}
         className=''
         containerClass='container'
@@ -143,23 +136,28 @@ const Intro2 = () => {
 
 const Item = (props) => {
   return (
-    <div className='slide-content'>
-      <h2 className='slide-title'>{props.slide.title}</h2>
-      <p className='slide-text'>{props.slide.text}</p>
-      {props.slide.img ? (
-        <img src={props.slide.img} alt='chord-img' height={250}></img>
-      ) : null}
-      {props.slide.subText ? (
-        <p className='slide-text'>{props.slide.subText}</p>
-      ) : null}
-      {props.idx === 3 ? (
-        <button className='next-lesson'>Intervals Crash Course</button>
-      ) : null}
-      {props.idx === props.length ? (
-        <Link to='/study/chords/lesson1'>
-          <button className='next-lesson'>Next Lesson</button>
-        </Link>
-      ) : null}
+    <div>
+      <div className='slide-header'>
+        <h2 className='slide-title'>{props.slide.title}</h2>
+      </div>
+
+      <div className='slide-list'>
+        <p className='slide-text'>{props.slide.text}</p>
+        {props.slide.img ? (
+          <img src={props.slide.img} alt='chord-img' height={250}></img>
+        ) : null}
+        {props.slide.subText ? (
+          <p className='slide-text'>{props.slide.subText}</p>
+        ) : null}
+        {props.idx === 3 ? (
+          <button className='next-lesson'>Intervals Crash Course</button>
+        ) : null}
+        {props.idx === props.length ? (
+          <Link to='/study/chords/lesson1'>
+            <button className='next-lesson'>Next Lesson</button>
+          </Link>
+        ) : null}
+      </div>
     </div>
   );
 };

@@ -109,7 +109,10 @@ export default function IntervalQuiz() {
 
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {
+      alert("you got it right!");
       setScore(score + 1);
+    } else {
+      alert("incorrect answer");
     }
 
     const nextQuestion = currentQuestion + 1;
@@ -119,32 +122,51 @@ export default function IntervalQuiz() {
       setShowScore(true);
     }
   };
+
+  const resetQuiz = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowScore(false);
+  };
   return (
     <div className='quiz'>
       {showScore ? (
         <div className='score-section'>
-          You scored {score} out of {questions.length}
+          <p>
+            You scored {score} out of {questions.length}
+          </p>
+          {score === questions.length ? (
+            <p>Congrats! You got them all correct!</p>
+          ) : (
+            <button onClick={resetQuiz}>Retake Quiz?</button>
+          )}
         </div>
       ) : (
         <>
           <div className='question-section'>
+            {currentQuestion === 0 ? (
+              <>
+                <h2>Quiz Time!</h2>
+              </>
+            ) : null}
             <div className='question-count'>
               <span>Question {currentQuestion + 1}</span>/{questions.length}
             </div>
-            <div className='question-text'>
+            <p className='question-text'>
               {questions[currentQuestion].questionText}
-            </div>
+            </p>
             <div className='audio-sample'>
               <AiFillSound
-                className='icon'
+                className='quiz-audio'
                 onMouseDown={questions[currentQuestion].audio}
-                size={45}
+                size={100}
               />
             </div>
           </div>
           <div className='answer-section'>
             {questions[currentQuestion].answerOptions.map((answerOption) => (
               <button
+                className='quiz-button'
                 onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}
               >
                 {answerOption.answerText}

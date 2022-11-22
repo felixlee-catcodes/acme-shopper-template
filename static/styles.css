@@ -27,15 +27,15 @@ body {
 
 /* home page content */
 .about {
-    
     width: auto;
     margin: 0 15%;
-
 }
 .about, p{
     font-size: larger;
 }
 /* --------------------- */
+
+
 /* component wrapper */
 .el-wrapper {
     display: flex;
@@ -43,6 +43,8 @@ body {
     align-items: center;
     justify-content: flex-start;
 }
+
+
 /* slide styles */
 .text{ margin-bottom: 0;}
 .audio-samples{
@@ -130,6 +132,36 @@ body {
     cursor: pointer;
 }
 
+.test{
+    height: 100%;
+    /* display: flex; */
+}
+
+/* QUIZ STYLING */
+.quiz{
+    margin-left: 10%;
+    margin-top: 5%;
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: rgb(79, 173, 79);
+}
+.quiz-audio{
+    border: 5px black solid;
+    border-radius: 50%;
+    padding: 2%;
+}
+.quiz-button{
+    height: 3rem;
+    width: auto;
+    font-size: large;
+    margin: 0 1rem;
+    cursor: pointer;
+}
 /* .slide-container {
     display: flex;
     flex-direction: column;
@@ -178,10 +210,10 @@ body {
     margin-bottom: 0;
 }
  .slide-text {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: left;
-    /* margin: 0 5%; */
-    line-height: 200%;
+    
+    line-height: 150%;
  }
 
 /*  */

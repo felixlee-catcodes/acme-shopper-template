@@ -14,12 +14,16 @@ const cMajorSynth = () => {
   synth.triggerRelease([...cMajNotes], now + 1);
 };
 
-// const cMajor = "<ins
-//         class='scales_chords_api'
-//         chord='Cmajor'
-//         instrument='piano'
-//         output='sound'
-//       ></ins>"
+const AMinorSynth = () => {
+  const notes = ["A4", "C4", "E4"];
+
+  const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+  const now = Tone.now();
+  synth.triggerAttack(notes[0], "2n");
+  synth.triggerAttack(notes[1], "2n");
+  synth.triggerAttack(notes[2], "2n");
+  synth.triggerRelease([...notes], now + 1);
+};
 
 export default function Trainer() {
   const questions = [
@@ -32,30 +36,11 @@ export default function Trainer() {
       ],
     },
     {
-      questionText: "Who is CEO of Tesla?",
+      questionText: "Is this chord major or minor?",
+      audio: AMinorSynth,
       answerOptions: [
-        { answerText: "Jeff Bezos", isCorrect: false },
-        { answerText: "Elon Musk", isCorrect: true },
-        { answerText: "Bill Gates", isCorrect: false },
-        { answerText: "Tony Stark", isCorrect: false },
-      ],
-    },
-    {
-      questionText: "The iPhone was created by which company?",
-      answerOptions: [
-        { answerText: "Apple", isCorrect: true },
-        { answerText: "Intel", isCorrect: false },
-        { answerText: "Amazon", isCorrect: false },
-        { answerText: "Microsoft", isCorrect: false },
-      ],
-    },
-    {
-      questionText: "How many Harry Potter books are there?",
-      answerOptions: [
-        { answerText: "1", isCorrect: false },
-        { answerText: "4", isCorrect: false },
-        { answerText: "6", isCorrect: false },
-        { answerText: "7", isCorrect: true },
+        { answerText: "Major", isCorrect: false },
+        { answerText: "Minor", isCorrect: true },
       ],
     },
   ];
@@ -77,10 +62,17 @@ export default function Trainer() {
     }
   };
   return (
-    <div className='app'>
+    <div className='quiz'>
       {showScore ? (
         <div className='score-section'>
-          You scored {score} out of {questions.length}
+          <p>
+            You scored {score} out of {questions.length}
+          </p>
+          {score === questions.length ? (
+            <p>Congrats! You got them all correct!</p>
+          ) : (
+            <button onClick={resetQuiz}>Retake Quiz?</button>
+          )}
         </div>
       ) : (
         <>
@@ -93,7 +85,7 @@ export default function Trainer() {
             </div>
             <div className='audio-sample'>
               <AiFillSound
-                className='icon'
+                className='quiz-audio'
                 onMouseDown={questions[currentQuestion].audio}
                 size={45}
               />
