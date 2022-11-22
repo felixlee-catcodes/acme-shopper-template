@@ -61,6 +61,11 @@ export default function Trainer() {
       setShowScore(true);
     }
   };
+  const resetQuiz = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowScore(false);
+  };
   return (
     <div className='quiz'>
       {showScore ? (
@@ -94,6 +99,7 @@ export default function Trainer() {
           <div className='answer-section'>
             {questions[currentQuestion].answerOptions.map((answerOption) => (
               <button
+                className='quiz-button'
                 onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}
               >
                 {answerOption.answerText}

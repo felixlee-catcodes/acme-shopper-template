@@ -150,7 +150,9 @@ const Item = (props) => {
           <p className='slide-text'>{props.slide.subText}</p>
         ) : null}
         {props.idx === 3 ? (
-          <button className='next-lesson'>Intervals Crash Course</button>
+          <Link to='/study/intervals'>
+            <button className='next-lesson'>Intervals Crash Course</button>
+          </Link>
         ) : null}
         {props.idx === props.length ? (
           <Link to='/study/chords/lesson1'>
