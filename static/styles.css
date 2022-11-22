@@ -33,19 +33,30 @@ body {
 
 }
 .about, p{
-    /* text-align: left; */
-    /* margin-left: 10em; */
     font-size: larger;
 }
-/* .about, h3 {
-    margin-left: 8.5em;
-} */
-
-/* .about, hr {
-    margin-left: 0;
-}  */
 /* --------------------- */
+/* component wrapper */
+.el-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
 /* slide styles */
+.text{ margin-bottom: 0;}
+.audio-samples{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 0;
+}
+.sample{
+    margin-top: 0;
+}
+/* .container {
+    width: 100%;
+} */
 .slide-header {
     display: flex;
     align-items: center;
@@ -58,6 +69,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    margin-top: 0;
 }
 
 .tone-container{
@@ -82,7 +94,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid white;
+    /* border: 2px solid white; */
 }
 .tone{
     display: flex;
@@ -101,6 +113,23 @@ body {
 .note-val{
     font-size: 2rem;
 }
+
+.images {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.next-lesson{
+    border: none;
+    height: 3rem;
+    width: auto;
+    font-size: 2rem;
+    background-color: green;
+    border: 2px solid rgb(0, 32, 0);
+    padding: 0 1rem;
+    cursor: pointer;
+}
+
 /* .slide-container {
     display: flex;
     flex-direction: column;
@@ -115,24 +144,46 @@ body {
 
 
 /*  react multi carousel test  */
-   .react-multi-carousel-list{
-        height: 700px;
-        background-color: rgb(255, 183, 0);
-        color: black;
-        width: 1000px;
-        margin-left: 415px;
-        margin-bottom: 50px;
-    }
-    .react-multi-carousel-track{ 
-        height: 500;
-        background-color:rgb(255, 244, 215);
-        text-align: center;
-        text-emphasis: bold;
-        
-    }
-    .slide-content{
-        text-align: center;
-    }
+.react-multi-carousel-list{
+    height: 700px;
+    background-color: rgb(255, 183, 0);
+    color: black;
+    width: 1000px;
+    /* margin-left: 415px; */
+    margin-bottom: 50px;
+ }
+.react-multi-carousel-track{ 
+    height: 500;
+    background-color:rgb(255, 244, 215);
+    text-align: center;
+    text-emphasis: bold;
+ }
+ .slide-header{
+    margin-top: 1rem;
+ }
+ .slide-list{
+    font-size: 25px;
+    margin: 0 10%;
+ }
+ .slide-list-item{
+    margin: .5rem 0;
+ }
+.slide-content{
+    text-align: center;
+    height: 100%;
+    justify-content: space-evenly;
+ }
+.slide-title{
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+ .slide-text {
+    font-size: 2rem;
+    text-align: left;
+    /* margin: 0 5%; */
+    line-height: 200%;
+ }
+
 /*  */
 .css-ohwg9z {
     display: flex;
@@ -163,4 +214,46 @@ body {
 
 .css-yfz3wk {
     border-radius: 20px;
+}
+/* Piano Keyboard */
+.piano {
+    padding: 50px 10px 0 10px;
+    background-color: #121418;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    align-items: flex-start;
+    width: 700px
+}
+
+.key {
+    width: 60px;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.white {
+    height: 220px;
+    background-color: white;
+    border: 5px solid #363C4A;
+    border-bottom: 5px solid #DFD3D3;
+    z-index: 1;
+}
+
+.white:active {
+    border-bottom: none;
+    background-color: #DFD3D3;
+}
+
+.black {
+    width: 30px;
+    height: 130px;
+    background-color: #363C4A;
+    z-index: 2;
+    margin-left: -15px;
+    margin-right: -15px;
+    border-bottom: 5px solid #5D5E67;
+}
+
+.black:active {
+    border-bottom: none;
 }

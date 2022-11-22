@@ -1,16 +1,17 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import CmajorSlide from "./Slides/CmajorSlide";
-import CminorSlide from "./Slides/CminorSlide";
-import CompareCmajCmin from "./Slides/CompareCmajCmin";
-import Trainer1 from "./Slides/Trainer1";
-
+import IntervalIntro from "./Intro";
+import RootThirdFifth from "./Root";
+import Major3rd from "./Major3rd";
+import Perfect5th from "./Perfect5th";
+import IntervalQuiz from "./Quiz";
 const slides = [
-  <CmajorSlide />,
-  <CminorSlide />,
-  <CompareCmajCmin />,
-  <Trainer1 />,
+  <IntervalIntro />,
+  <RootThirdFifth />,
+  <Major3rd />,
+  <Perfect5th />,
+  <IntervalQuiz />,
 ];
 
 const responsive = {
@@ -33,21 +34,14 @@ const responsive = {
   },
 };
 
-const FirstChordsLesson = () => {
+const IntervalsLesson = () => {
   return (
     <div className='el-wrapper'>
-      <h2>First Chords</h2>
+      <h2>Intervals</h2>
       <Carousel
         additionalTransfrom={0}
         arrows
         autoPlaySpeed={1000}
-        // beforeChange={function (nextSlide, _ref2) {
-        //   var currentSlide = _ref2.currentSlide;
-        //   _ref2.onMove;
-        //   return alert(
-        //     "previous slide is " + currentSlide + " nextSlide is " + nextSlide
-        //   );
-        // }}
         centerMode={false}
         className=''
         containerClass='container'
@@ -105,4 +99,4 @@ const FirstChordsLesson = () => {
   );
 };
 
-export default FirstChordsLesson;
+export default IntervalsLesson;

@@ -233,13 +233,13 @@ export default function BasicAppBar() {
           { title: "7th Chords", ref: "/chords/lesson2" },
           { title: "Augmented & Diminished Chords", ref: "/chords/lesson3" },
         ].map((data, index) => (
-          <ListItem key={index} disablePadding className='menu-list-item'>
-            <Link className='menu-link' to={`/study${data.ref}`}>
+          <Link key={index} className='menu-link' to={`/study${data.ref}`}>
+            <ListItem disablePadding className='menu-list-item'>
               <ListItemButton>
                 <ListItemText primary={data.title} />
               </ListItemButton>
-            </Link>
-          </ListItem>
+            </ListItem>
+          </Link>
         ))}
       </List>
       <Divider />

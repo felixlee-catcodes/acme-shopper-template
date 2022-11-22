@@ -13,7 +13,7 @@ const cMinor = () => {
   synth.triggerAttack("C4", "2n");
   synth.triggerAttack("Eb4", "2n");
   synth.triggerAttack("G4", "2n");
-  synth.triggerRelease([...cMinNotes], now + 2);
+  synth.triggerRelease([...cMinNotes], now + 1);
 };
 
 const cMajor = () => {
@@ -22,7 +22,7 @@ const cMajor = () => {
   synth.triggerAttack("C4", "2n");
   synth.triggerAttack("E4", "2n");
   synth.triggerAttack("G4", "2n");
-  synth.triggerRelease([...cMajNotes], now + 2);
+  synth.triggerRelease([...cMajNotes], now + 1);
 };
 
 const Compare = () => {
@@ -40,12 +40,26 @@ const Compare = () => {
           <div className='note-val'>major</div>
           <AiFillSound className='icon' onMouseDown={cMajor} size={45} />
         </div>
+
         <div className='note-name'>vs</div>
         <div className='tone'>
           <div className='note-name'>C</div>
           <div className='note-val'>minor</div>
           <AiFillSound className='icon' onMouseDown={cMinor} size={45} />
         </div>
+      </div>
+      <div className='images'>
+        <img
+          src='https://pianosecrets.com/wp-content/uploads/2019/10/xC-Major-Chord.gif.pagespeed.ic_.Nuexu2mt0v.png'
+          alt='c major chord'
+          height={150}
+        />
+        <div></div>
+        <img
+          src='https://pianosecrets.com/wp-content/uploads/2019/10/C-Minor-2.png'
+          alt='c minor'
+          height={150}
+        />
       </div>
     </div>
   );
